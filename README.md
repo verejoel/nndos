@@ -17,11 +17,21 @@ the integral transform:
 ![equation](https://latex.codecogs.com/gif.latex?D(\omega)) - phonon density of states (DOS);
 ![equation](https://latex.codecogs.com/gif.latex?K(\omega,T)) - kernel function.
 
-One first discretizes the DOS by defining ![equation](https://latex.codecogs.com/gif.latex?D(n&space;\Delta\omega)\equiv&space;s_n\Delta\omega) such that the problem is reformulated as a matrix equation:
+One first discretizes the DOS by defining 
+
+![equation](https://latex.codecogs.com/gif.latex?D(n&space;\Delta\omega)\equiv&space;s_n\Delta\omega) 
+
+such that the problem is reformulated as a matrix equation:
 
 ![equation](https://latex.codecogs.com/gif.latex?C_V(T_i)=\sum_jK_{ij}s_j).
 
-The kernel matrix K is given by ![equation](https://latex.codecogs.com/gif.latex?K_{ij}=3R\frac{y^2\exp(y)}{(1-\exp(y))^2}) with ![equation](https://latex.codecogs.com/gif.latex?y=\frac{\hbar\omega_j}{k_BT_i}).  
+The kernel matrix K is given by 
+
+![equation](https://latex.codecogs.com/gif.latex?K_{ij}=3R\frac{y^2\exp(y)}{(1-\exp(y))^2}) 
+
+with 
+
+![equation](https://latex.codecogs.com/gif.latex?y=\frac{\hbar\omega_j}{k_BT_i}).  
 
 N.B. we set ![equation](https://latex.codecogs.com/gif.latex?\hbar=k_B=3R=1) for the time being.
 
