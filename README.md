@@ -8,47 +8,47 @@ of states from temperature dependent heat capacity data
 Specific heat due to phonons is related to phonon density of states by 
 the integral transform:
 
-    Cv(T) = int_0^infty [dw D(w) K(w,T)]
+   ![equation](https://latex.codecogs.com/gif.latex?C_V(T)=\int_0^\infty&space;d\omega&space;D\omegaD(\omega)K(\omega,T))
 
-Cv - heat capacity at constant volume
-T - temperature
-R - gas constant
-w - phonon frequency
-D(w) - phonon density of states (DOS)
-K(w,T) - kernel function
+![equation](https://latex.codecogs.com/gif.latex?C_V) - heat capacity at constant volume
+![equation](https://latex.codecogs.com/gif.latex?T) - temperature
+![equation](https://latex.codecogs.com/gif.latex?R) - gas constant
+![equation](https://latex.codecogs.com/gif.latex?\omega) - phonon frequency
+![equation](https://latex.codecogs.com/gif.latex?D(\omega)) - phonon density of states (DOS)
+![equation](https://latex.codecogs.com/gif.latex?K(\omega,T)) - kernel function
 
 One first discretizes the DOS by defining 
 
-    D(n dw) = s_n dw
+   ![equation](https://latex.codecogs.com/gif.latex?D(n&space;\Delta\omega)\equiv&space;s_n\Delta\omega)
 
 such that the problem is reformulated as a matrix equation:
 
-    Cv(T_i) = sum_j [K_ij s_j].
+   ![equation](https://latex.codecogs.com/gif.latex?C_V(T_i)=\sum_jK_{ij}s_j).
 
 The kernel matrix K is given by
 
-    K_ij = 3R y^2 exp(y)/(1-exp(y))^2
+   ![equation](https://latex.codecogs.com/gif.latex?K_{ij}=3R\frac{y^2\exp(y)}{(1-\exp(y))^2})
 
 with 
 
-    y = (hbar w_j)/(k_B T_i).
+   ![equation](https://latex.codecogs.com/gif.latex?y=\frac{\hbar\omega_j}{k_BT_i}).
 
-N.B. we set hbar = k_B = 3R = 1 for the time being.
+N.B. we set ![equation](https://latex.codecogs.com/gif.latex?\hbar=k_B=3R=1) for the time being.
 
-Therefore we have an (m by 1) input vector of (T_i, Cv_i) tuples, and
-require an (n by 1) output vector of the s_j components of the DOS, D(w)
+Therefore we have an ![equation](https://latex.codecogs.com/gif.latex?(m\times1)) input vector of ![equation](https://latex.codecogs.com/gif.latex?(T_i,C_{v,i})) tuples, and
+require an ![equation](https://latex.codecogs.com/gif.latex?(n\times1)) output vector of the ![equation](https://latex.codecogs.com/gif.latex?s_j) components of the DOS, ![equation](https://latex.codecogs.com/gif.latex?D(\omega)).
 
 ############################ PRE-PROCESSING ############################
 
 Temperature regularization: typical maximum value is 300, so I just 
-define t_i = T_i / 300 for now
+define ![equation](https://latex.codecogs.com/gif.latex?t_i=T_i/300) for now.
 
 Then calculate the Euclidean distance of each tuple from origin to yield
-input vector X:
+input vector ![equation](https://latex.codecogs.com/gif.latex?X):
 
-    X_i = (t_i^2 + Cv_i^2)^0.5
+   ![equation](https://latex.codecogs.com/gif.latex?X_i=\sqrt{t_i^2+C_{v,i}^2})
 
-X is then a (m x 1) dimensional vector of Real numbers.
+![equation](https://latex.codecogs.com/gif.latex?X) is then an ![equation](https://latex.codecogs.com/gif.latex?(m\times1)) dimensional vector of Real numbers.
 
 NOTE: for now I will design network to accept a fixed input vector 
-length of m = 50 and output a fixed length vector with n = 50
+length of ![equation](https://latex.codecogs.com/gif.latex?m=50) and output a fixed length vector with ![equation](https://latex.codecogs.com/gif.latex?n=50)
