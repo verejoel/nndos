@@ -1,2 +1,5 @@
+# don't track Jupyter notebook checkpoints
+/.ipynb_checkpoints/
+
 # don't track compressed training data
 *.bz2
