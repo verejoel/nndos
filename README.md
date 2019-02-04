@@ -37,18 +37,3 @@ N.B. we set ![equation](https://latex.codecogs.com/gif.latex?\hbar=k_B=3R=1) for
 
 Therefore we have an ![equation](https://latex.codecogs.com/gif.latex?(m\times1)) input vector of ![equation](https://latex.codecogs.com/gif.latex?(T_i,C_{v,i})) tuples, and
 require an ![equation](https://latex.codecogs.com/gif.latex?(n\times1)) output vector of the ![equation](https://latex.codecogs.com/gif.latex?s_j) components of the DOS, ![equation](https://latex.codecogs.com/gif.latex?D(\omega)).
-
-## PRE-PROCESSING
-
-Temperature regularization: typical maximum value is 300, so I just 
-define ![equation](https://latex.codecogs.com/gif.latex?t_i=T_i/300) for now.
-
-Then calculate the Euclidean distance of each tuple from origin to yield
-input vector ![equation](https://latex.codecogs.com/gif.latex?X):
-
-   ![equation](https://latex.codecogs.com/gif.latex?X_i=\sqrt{t_i^2+C_{v,i}^2})
-
-![equation](https://latex.codecogs.com/gif.latex?X) is then an ![equation](https://latex.codecogs.com/gif.latex?(m\times1)) dimensional vector of Real numbers.
-
-NOTE: for now I will design network to accept a fixed input vector 
-length of ![equation](https://latex.codecogs.com/gif.latex?m=50) and output a fixed length vector with ![equation](https://latex.codecogs.com/gif.latex?n=50)
